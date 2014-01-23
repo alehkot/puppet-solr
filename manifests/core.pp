@@ -27,6 +27,7 @@ define solr::core(
   file { "${solr_home}/${core_name}/conf":
     ensure  => directory,
     recurse => true,
+    replace => false,
     source  => 'puppet:///modules/solr/conf',
     require => File["${solr_home}/${core_name}"],
   }
